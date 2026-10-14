@@ -1,0 +1,137 @@
+/* ===== Academic site — Minimal Mistakes 스타일 ===== */
+:root {
+  --text: #494e52;
+  --heading: #313436;
+  --muted: #7a8288;
+  --link: #52adc8;
+  --accent: #8b1e1e;          /* 버튼 색 (Texas A&M maroon 계열) */
+  --border: #f2f3f3;
+  --bg: #ffffff;
+  --code-bg: #fafafa;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 16px; }
+@media (min-width: 1024px) { html { font-size: 17px; } }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
+               "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== 상단 네비게이션 ===== */
+.masthead {
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+  position: sticky; top: 0; z-index: 10;
+}
+.masthead__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1em 1.5em;
+  display: flex; align-items: center; gap: 2.5em;
+}
+.site-title {
+  font-weight: 700; color: var(--heading); font-size: 1rem;
+}
+.site-title:hover { text-decoration: none; }
+.nav-links { display: flex; gap: 1.5em; margin: 0; padding: 0; list-style: none; }
+.nav-links a { color: var(--muted); font-size: .95rem; }
+.nav-links a.active, .nav-links a:hover { color: var(--heading); text-decoration: none; }
+
+/* ===== 레이아웃: 사이드바 + 본문 ===== */
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2em 1.5em 4em;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3em;
+}
+@media (max-width: 800px) {
+  .page { grid-template-columns: 1fr; gap: 1.5em; padding-top: 1.5em; }
+}
+
+/* ===== 사이드바 (프로필) ===== */
+.sidebar { font-size: .8rem; }
+@media (min-width: 801px) { .sidebar { position: sticky; top: 5em; align-self: start; } }
+
+.author__avatar img {
+  width: 160px; height: 160px; object-fit: cover;
+  border-radius: 50%; border: 1px solid #ddd; padding: 4px; display: block;
+}
+.author__name { margin: .8em 0 .2em; font-size: 1.1rem; font-weight: 700; color: var(--heading); }
+.author__bio { margin: 0 0 1em; color: var(--text); }
+.author__links { list-style: none; margin: 0; padding: 0; }
+.author__links li { margin: .45em 0; }
+.author__links a, .author__links span { color: var(--text); }
+.author__links i { width: 1.2em; text-align: center; margin-right: .35em; color: var(--heading); }
+
+@media (max-width: 800px) {
+  .sidebar { display: flex; gap: 1.2em; align-items: center; flex-wrap: wrap; }
+  .author__avatar img { width: 100px; height: 100px; }
+  .author__links { display: flex; flex-wrap: wrap; gap: .3em 1em; }
+  .author__links li { margin: 0; }
+}
+
+/* ===== 본문 ===== */
+.content { max-width: 760px; min-width: 0; }
+.content h1 { font-size: 1.6rem; color: var(--heading); margin: 0 0 .8em; }
+.content h2 {
+  font-size: 1.35rem; color: var(--heading);
+  margin: 0 0 .8em; padding-bottom: .4em;
+}
+.content h2 + * { margin-top: 0; }
+.content section { margin-bottom: 2.5em; }
+.content p { margin: 0 0 1em; }
+
+/* 논문 항목 */
+.paper { margin-bottom: 1.6em; }
+.paper__title { margin: 0 0 .5em; }
+.paper__title em { font-style: italic; }
+
+.btns { display: flex; flex-wrap: wrap; gap: .4em; }
+.btn {
+  display: inline-block;
+  font-size: .78rem; line-height: 1.4;
+  padding: .25em .55em;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  color: var(--accent); background: #fff;
+  cursor: pointer; font-family: inherit;
+}
+.btn:hover { background: var(--accent); color: #fff; text-decoration: none; }
+.btn[aria-expanded="true"] { background: var(--accent); color: #fff; }
+
+.abstract {
+  display: none;
+  margin-top: .7em;
+  padding: .8em 1em;
+  background: var(--code-bg);
+  border-left: 3px solid var(--accent);
+  font-size: .9rem;
+}
+.abstract.open { display: block; }
+
+/* 일반 리스트 */
+.plain-list { padding-left: 1.2em; }
+.plain-list li { margin-bottom: .5em; }
+
+/* CV 페이지 PDF 뷰어 */
+.cv-frame {
+  width: 100%; height: 80vh;
+  border: 1px solid #ddd; border-radius: 4px;
+}
+
+footer {
+  text-align: center; font-size: .75rem; color: var(--muted);
+  padding: 2em 1em; border-top: 1px solid var(--border);
+}
